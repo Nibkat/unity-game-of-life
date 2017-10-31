@@ -14,7 +14,7 @@ public class Cell : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         SetAlive(!alive);
 

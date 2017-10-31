@@ -23,7 +23,6 @@ public class Grid : MonoBehaviour
     private float simulationSpeed = 1f;
     [SerializeField]
     private Slider simulationSpeedSlider;
-    [SerializeField]
     private int generations;
     [SerializeField]
     private Text generationText;

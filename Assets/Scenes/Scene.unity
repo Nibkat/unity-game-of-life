@@ -204,11 +204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cell: {fileID: 1167236124035250, guid: 88187265926d54142b7233e6da65c2d6, type: 2}
-  gridSize: {x: 24, y: 24}
+  gridSize: {x: 50, y: 50}
   simulate: 0
   simulationSpeed: 1
   simulationSpeedSlider: {fileID: 464375408}
-  generations: 0
   generationText: {fileID: 1490322935}
 --- !u!4 &49723751
 Transform:
@@ -2058,6 +2057,7 @@ GameObject:
   - component: {fileID: 2009315392}
   - component: {fileID: 2009315391}
   - component: {fileID: 2009315390}
+  - component: {fileID: 2009315395}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -2095,7 +2095,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.791, g: 0.63280004, b: 0.791, a: 0}
+  m_BackGroundColor: {r: 0.2572448, g: 0.28310016, b: 0.28676468, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2135,6 +2135,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009315395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009315389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bebb330e6d473e448175e6c736f4dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zOffset: -10
+  scrollSpeed: 2
+  orthographicSizeMinMax: {x: 5, y: 22}
 --- !u!1 &2130478870
 GameObject:
   m_ObjectHideFlags: 0
