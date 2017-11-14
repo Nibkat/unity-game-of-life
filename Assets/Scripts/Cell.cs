@@ -2,7 +2,7 @@
 
 public class Cell : MonoBehaviour
 {
-    private SpriteRenderer spr;
+    private SpriteRenderer spriteRenderer;
 
     public Vector2 cellPosition = Vector2.zero;
 
@@ -11,14 +11,12 @@ public class Cell : MonoBehaviour
 
     private void Awake()
     {
-        spr = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseUp()
     {
         SetAlive(!alive);
-
-        print("Alive neighbors: " + CountNeighbors);
     }
 
     public void SetAlive(bool value)
@@ -27,11 +25,11 @@ public class Cell : MonoBehaviour
 
         if (alive)
         {
-            spr.color = Color.black;
+            spriteRenderer.color = Color.black;
         }
         else
         {
-            spr.color = Color.white;
+            spriteRenderer.color = Color.white;
         }
     }
 
@@ -40,31 +38,6 @@ public class Cell : MonoBehaviour
         get
         {
             return alive;
-        }
-    }
-
-    public int CountNeighbors
-    {
-        get
-        {
-            int neighbors = 0;
-
-            for (int x = -1; x < 2; x++)
-            {
-                for (int y = -1; y < 2; y++)
-                {
-                    try
-                    {
-                        if (Grid.instance.cellArray[(int)cellPosition.x + x, (int)cellPosition.y + y].GetComponent<Cell>().alive && Grid.instance.cellArray[(int)cellPosition.x + x, (int)cellPosition.y + y].GetComponent<Cell>() != this)
-                        {
-                            neighbors++;
-                        }
-                    }
-                    catch { }
-                }
-            }
-
-            return neighbors;
         }
     }
 }

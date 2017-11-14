@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             transform.position = new Vector3(transform.position.x + -Input.GetAxis("Mouse X"), transform.position.y + -Input.GetAxis("Mouse Y"), zOffset);
         }
