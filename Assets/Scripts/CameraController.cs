@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour
-{
+public class CameraController : MonoBehaviour {
     private Camera _camera;
 
     [SerializeField]
@@ -10,20 +9,19 @@ public class CameraController : MonoBehaviour
     private float scrollSpeed = 2f;
     [SerializeField]
     private Vector2 orthographicSizeMinMax = new Vector2(5, 22);
+    [SerializeField]
+    private float orthographicSizeSpeed = 5;
 
-    private void Awake()
-    {
+    private void Awake() {
         _camera = GetComponent<Camera>();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButton(1))
-        {
+    private void Update() {
+        if (Input.GetMouseButton(1)) {
             transform.position = new Vector3(transform.position.x + -Input.GetAxis("Mouse X"), transform.position.y + -Input.GetAxis("Mouse Y"), zOffset);
         }
 
         float _orthographicSize = Mathf.Clamp(_camera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed, orthographicSizeMinMax.x, orthographicSizeMinMax.y);
-        _camera.orthographicSize = _orthographicSize;
+        _camera.orthographicSize = Mathf.MoveTowards(_camera.orthographicSize, _orthographicSize, orthographicSizeSpeed * Time.deltaTime);
     }
 }
